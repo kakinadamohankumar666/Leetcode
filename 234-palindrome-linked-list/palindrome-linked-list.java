@@ -20,9 +20,9 @@ class Solution {
         if(head == null && head.next ==null){
             return true;
         }
-        ListNode midNode = slow;
+        //ListNode midNode = slow;
         ListNode prev = null;
-        ListNode curr = midNode;
+        ListNode curr = slow;
         ListNode next;
 
         while(curr!= null){
