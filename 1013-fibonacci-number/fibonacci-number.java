@@ -3,6 +3,8 @@ class Solution {
         if(n==0 || n==1){
             return n;
         }
-        return fib(n-1)+fib(n-2);
+        int f1 = fib(n-1);
+        int f2 = fib(n-2);
+        return f1+f2;
     }
 }
