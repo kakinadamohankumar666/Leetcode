@@ -1,17 +1,19 @@
 class Solution {
     public int reverse(int x) {
-        String s = Integer.toString(x);
-        String reversed;
-        if (s.charAt(0) == '-') {
-            String digits = s.substring(1);
-            reversed = "-" + new StringBuilder(digits).reverse().toString();
-        } else {
-            reversed = new StringBuilder(s).reverse().toString();
+        int result = 0;
+
+        while (x != 0) {
+            int digit = x % 10;
+            x /= 10;
+
+            if (result > Integer.MAX_VALUE / 10 || (result == Integer.MAX_VALUE / 10 && digit > 7))
+                return 0;
+            if (result < Integer.MIN_VALUE / 10 || (result == Integer.MIN_VALUE / 10 && digit < -8))
+                return 0;
+
+            result = result * 10 + digit;
         }
-        try {
-            return Integer.parseInt(reversed);
-        } catch (NumberFormatException e) {
-            return 0;
-        }
+
+        return result;
     }
 }
